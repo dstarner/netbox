@@ -66,6 +66,9 @@ class VRF(ChangeLoggedModel, CustomFieldModel):
         max_length=100,
         blank=True
     )
+    comments = models.TextField(
+        blank=True
+    )
     custom_field_values = GenericRelation(
         to='extras.CustomFieldValue',
         content_type_field='obj_type',
@@ -163,6 +166,9 @@ class Aggregate(ChangeLoggedModel, CustomFieldModel):
     )
     description = models.CharField(
         max_length=100,
+        blank=True
+    )
+    comments = models.TextField(
         blank=True
     )
     custom_field_values = GenericRelation(
@@ -349,6 +355,9 @@ class Prefix(ChangeLoggedModel, CustomFieldModel):
         to='extras.CustomFieldValue',
         content_type_field='obj_type',
         object_id_field='obj_id'
+    )
+    comments = models.TextField(
+        blank=True
     )
 
     objects = PrefixQuerySet.as_manager()
@@ -613,6 +622,9 @@ class IPAddress(ChangeLoggedModel, CustomFieldModel):
     )
     description = models.CharField(
         max_length=100,
+        blank=True
+    )
+    comments = models.TextField(
         blank=True
     )
     custom_field_values = GenericRelation(
@@ -901,6 +913,9 @@ class VLAN(ChangeLoggedModel, CustomFieldModel):
         max_length=100,
         blank=True
     )
+    comments = models.TextField(
+        blank=True
+    )
     custom_field_values = GenericRelation(
         to='extras.CustomFieldValue',
         content_type_field='obj_type',
@@ -1011,6 +1026,9 @@ class Service(ChangeLoggedModel, CustomFieldModel):
     )
     description = models.CharField(
         max_length=100,
+        blank=True
+    )
+    comments = models.TextField(
         blank=True
     )
     custom_field_values = GenericRelation(

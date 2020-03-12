@@ -257,6 +257,9 @@ class SecretRole(ChangeLoggedModel):
         max_length=100,
         blank=True,
     )
+    comments = models.TextField(
+        blank=True
+    )
     users = models.ManyToManyField(
         to=User,
         related_name='secretroles',

@@ -787,6 +787,9 @@ class RackReservation(ChangeLoggedModel):
     description = models.CharField(
         max_length=100
     )
+    comments = models.TextField(
+        blank=True
+    )
 
     csv_headers = ['site', 'rack_group', 'rack', 'units', 'tenant', 'user', 'description']
 
@@ -1668,6 +1671,9 @@ class VirtualChassis(ChangeLoggedModel):
         max_length=30,
         blank=True
     )
+    comments = models.TextField(
+        blank=True
+    )
 
     tags = TaggableManager(through=TaggedItem)
 
@@ -1737,6 +1743,9 @@ class PowerPanel(ChangeLoggedModel):
     )
     name = models.CharField(
         max_length=50
+    )
+    comments = models.TextField(
+        blank=True
     )
 
     csv_headers = ['site', 'rack_group_name', 'name']
@@ -1979,6 +1988,9 @@ class Cable(ChangeLoggedModel):
         max_length=50,
         choices=CableLengthUnitChoices,
         blank=True,
+    )
+    comments = models.TextField(
+        blank=True
     )
     # Stores the normalized length (in meters) for database ordering
     _abs_length = models.DecimalField(
